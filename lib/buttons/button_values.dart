@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+// buttons values
 
 class Buttons {
   static const String clear = "C";
@@ -10,6 +10,8 @@ class Buttons {
   static const String add = "+";
   static const String calc = "=";
   static const String dot = ".";
+  static const String conv = "=>";
+  static const String change = "<>";
 
   static const String n_0 = "0";
   static const String n_1 = "1";
@@ -42,5 +44,23 @@ class Buttons {
     n_0,
     dot,
     calc,
+  ];
+
+  static const List<String> buttonValuesConverter = [
+    n_7,
+    n_8,
+    n_9,
+    clear,
+    n_4,
+    n_5,
+    n_6,
+    backsp,
+    n_1,
+    n_2,
+    n_3,
+    change,
+    n_0,
+    dot,
+    conv,
   ];
 }

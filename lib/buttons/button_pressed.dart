@@ -11,9 +11,9 @@ class ButtonPressed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             shape: value != Buttons.n_0 ? BoxShape.circle : BoxShape.rectangle,
             borderRadius:
@@ -25,7 +25,7 @@ class ButtonPressed extends StatelessWidget {
               BoxShadow(
                 color:
                     value == Buttons.clear ? Colors.red.shade200 : Colors.white,
-                offset: Offset(4.0, 4.0),
+                offset: const Offset(4.0, 4.0),
                 blurRadius: 8.0,
                 spreadRadius: 2.0,
               ),
@@ -33,23 +33,39 @@ class ButtonPressed extends StatelessWidget {
                   color: value == Buttons.clear
                       ? Colors.red.shade800
                       : Colors.grey.shade500,
-                  offset: Offset(-4.0, -4.0),
+                  offset: const Offset(-4.0, -4.0),
                   blurRadius: 8.0,
                   spreadRadius: 2.0),
             ],
           ),
           child: Center(
-            child: value == Buttons.backsp
-                ? Icon(Icons.backspace_outlined)
-                : Text(
-                    value,
-                    style: TextStyle(
-                      color: Colors.black,
-                      // Установите цвет текста в соответствии с вашим дизайном
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                    ),
+            child: (() {
+              if (value == Buttons.backsp) {
+                return const Icon(
+                  Icons.backspace_outlined,
+                  size: 23,
+                );
+              } else if (value == Buttons.change) {
+                return const Icon(
+                  Icons.change_circle_outlined,
+                  size: 28,
+                );
+              } else if (value == Buttons.conv) {
+                return const Icon(
+                  Icons.chevron_right_rounded,
+                  size: 38,
+                );
+              } else {
+                return Text(
+                  value,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
                   ),
+                );
+              }
+            })(),
           ),
         ));
   }
